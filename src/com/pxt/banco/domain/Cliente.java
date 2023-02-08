@@ -8,7 +8,8 @@ public class Cliente {
 	private String nomeCliente;
 	private String cpfCliente;
 	private LocalDate dataCadastro;
-
+	//teste github
+	
 	public Cliente(Integer codigoCliente, String nomeCliente, String cpfCliente, LocalDate dataCadastro) {
 		super();
 		this.codigoCliente = codigoCliente;
