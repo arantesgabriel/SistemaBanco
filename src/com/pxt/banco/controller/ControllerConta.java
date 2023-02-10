@@ -2,9 +2,14 @@ package com.pxt.banco.controller;
 
 import java.util.Scanner;
 
+import com.pxt.banco.services.ClienteService;
+import com.pxt.banco.services.ClienteServiceImpl;
+
 public class ControllerConta implements Controller {
 
 	private Scanner scannerEntrada;
+
+	ClienteService clienteService = new ClienteServiceImpl();
 
 	public ControllerConta(Scanner scannerEntrada) {
 		this.scannerEntrada = scannerEntrada;
@@ -14,25 +19,37 @@ public class ControllerConta implements Controller {
 
 		Integer opcao = 0;
 
-		do {
+		String cpfCliente = null;
 
-			mostrarMenuConta();
+		System.out.println("+-----------------------------------------+");
+		System.out.println("| Digite o seu CPF para realizar o login: |");
+		System.out.println("+-----------------------------------------+");
+		cpfCliente = scannerEntrada.nextLine().trim().toUpperCase();
 
-			opcao = Integer.parseInt(scannerEntrada.nextLine());
+		if (clienteService.procurarPorCpf(cpfCliente) != null) {
 
-			switch (opcao) {
+			do {
 
-			case 1:
-				
-				break;
-			case 2:
-				System.out.println("Em desenvolvimento.");
-				break;
-			case 3:
-				System.out.println("Em desenvolvimento.");
-			}
+				mostrarMenuConta();
+				opcao = Integer.parseInt(scannerEntrada.nextLine());
 
-		} while (opcao != 0);
+				switch (opcao) {
+
+				case 1:
+					
+					break;
+				case 2:
+					System.out.println("Em desenvolvimento.");
+					break;
+				case 3:
+					System.out.println("Em desenvolvimento.");
+				}
+
+			} while (opcao != 0);
+		} else
+			System.out.println("O CPF digitado não possui cadastro.");
+		System.out.println("Efetue o cadastro e tente novamente");
+		System.out.println("");
 	}
 
 	public void mostrarMenuConta() {

@@ -20,4 +20,8 @@ public class ContaRepositoryImpl implements ContaRepositoryInt {
 
 	}
 
+	public List <Conta> mostrarContas() {
+		return listaContas;
+	}
+	
 }

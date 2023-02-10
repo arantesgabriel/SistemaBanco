@@ -1,18 +1,10 @@
 package com.pxt.banco.controller;
 
-import java.time.LocalDate;
 import java.util.Scanner;
-
-import com.pxt.banco.services.ClienteService;
-import com.pxt.banco.services.ClienteServiceImpl;
-import com.pxt.banco.domain.Cliente;
-import com.pxt.banco.domain.Conta;
 
 public class ControllerInicial implements Controller {
 
 	private Scanner scannerEntrada;
-
-	private ClienteService clienteService = new ClienteServiceImpl();
 
 	Controller controller = null;
 

@@ -1,5 +1,7 @@
 package com.pxt.banco.services;
 
+import java.util.List;
+
 import com.pxt.banco.domain.Conta;
 import com.pxt.banco.repository.ContaRepositoryImpl;
 import com.pxt.banco.repository.ContaRepositoryInt;
@@ -14,6 +16,10 @@ public class ContaServiceImpl implements ContaService {
 
 	public Integer gerarNumeroConta() {
 		return contaRepository.gerarNumeroConta();
+	}
+	
+	public List <Conta> mostrarContas(){
+		return contaRepository.mostrarContas();
 	}
 
 }

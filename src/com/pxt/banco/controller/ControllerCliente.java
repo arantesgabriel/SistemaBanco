@@ -68,10 +68,10 @@ public class ControllerCliente implements Controller {
 		LocalDate data = LocalDate.now();
 
 		System.out.println("Digite seu nome completo:");
-		nomeCliente = scanerEntrada.nextLine().trim().toUpperCase();
+		nomeCliente = scannerEntrada.nextLine().trim().toUpperCase();
 
 		System.out.println("Digite seu CPF:");
-		cpfCliente = scanerEntrada.nextLine().trim().toUpperCase();
+		cpfCliente = scannerEntrada.nextLine().trim().toUpperCase();
 
 		// Consulta CPF informado para verificar se existe
 		if (clienteService.procurarPorCpf(cpfCliente) == null) {
