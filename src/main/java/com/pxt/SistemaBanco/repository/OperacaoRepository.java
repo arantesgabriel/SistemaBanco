@@ -11,7 +11,5 @@ public interface OperacaoRepository extends JpaRepository<Operacao, Long> {
 	
 	@Query("SELECT op FROM Operacao op WHERE op.codop = :codop")
 	List <Operacao> buscar (Long codop);
-	
-	
 
 }

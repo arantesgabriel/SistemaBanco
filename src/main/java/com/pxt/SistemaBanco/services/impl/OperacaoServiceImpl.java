@@ -56,7 +56,7 @@ public class OperacaoServiceImpl implements OperacaoService {
 
 		}
 
-		if (TipoOperacao.DP.equals(operacaoDTO.getTipop())) {
+		else if (TipoOperacao.DP.equals(operacaoDTO.getTipop())) {
 
 			Conta contaOrigem = contaCorrenteRepository.findById(operacaoDTO.getContaOrigem()).get();
 
@@ -81,7 +81,7 @@ public class OperacaoServiceImpl implements OperacaoService {
 
 		}
 
-		if (TipoOperacao.TF.equals(operacaoDTO.getTipop())) {
+		else if (TipoOperacao.TF.equals(operacaoDTO.getTipop())) {
 
 			// Instanciação dos atributos conta origem e destino do objeto Conta.
 			Conta contaOrigem = contaCorrenteRepository.findById(operacaoDTO.getContaOrigem()).get();

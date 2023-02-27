@@ -7,6 +7,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,13 +19,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "GABRIELPA.TBCOLANCAMENTO")
-public class Lancamento implements Serializable{
-	
+public class Lancamento implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "LANCAMENTO_SEQ")
 	@SequenceGenerator(sequenceName = "GABRIELPA.LANCAMENTO_SEQ", allocationSize = 1, name = "LANCAMENTO_SEQ")
@@ -38,11 +40,10 @@ public class Lancamento implements Serializable{
 	@Column(name = "DATLAN")
 	private LocalDateTime dataLancamento;
 	@Column(name = "TIPLAN")
+	@Enumerated(EnumType.STRING)
 	private TipoLancamento tipoLancamento;
 	@Column(name = "VLRLAN")
 	private BigDecimal valorLancamento;
-
-
 
 	public Long codigoLancamento() {
 		return codigoLancamento;
@@ -51,7 +52,7 @@ public class Lancamento implements Serializable{
 	public void codigoLancamento(Long iDLancamento) {
 		codigoLancamento = iDLancamento;
 	}
-	
+
 	public Operacao getOperacao() {
 		return operacao;
 	}
@@ -111,7 +112,5 @@ public class Lancamento implements Serializable{
 		Lancamento other = (Lancamento) obj;
 		return Objects.equals(codigoLancamento, other.codigoLancamento);
 	}
-	
-	
 
 }

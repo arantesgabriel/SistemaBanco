@@ -18,5 +18,4 @@ public enum TipoLancamento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 }
