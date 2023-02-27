@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pxt.SistemaBanco.domain.Cliente;
+import com.pxt.SistemaBanco.domain.Conta;
 import com.pxt.SistemaBanco.services.ClienteService;
 
 @RestController
@@ -29,7 +30,7 @@ public class ControllerCliente {
 		try {
 			return ResponseEntity.ok(clienteService.cadastrarCliente(cliente));			
 		} catch (Exception e) {
-			return ResponseEntity.badRequest().body("Erro ao cadastrar Cliente: " + e.getMessage());
+			return ResponseEntity.badRequest().body("Erro ao cadastrar cliente " + e.getMessage());
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package com.pxt.SistemaBanco.services;
+package com.pxt.SistemaBanco.services.impl;
 
 import java.math.BigDecimal;
 
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.pxt.SistemaBanco.domain.Cliente;
 import com.pxt.SistemaBanco.domain.Conta;
 import com.pxt.SistemaBanco.repository.ContaCorrenteRepository;
+import com.pxt.SistemaBanco.services.ContaCorrenteService;
 
 @Service
 public class ContaCorrenteServiceImpl implements ContaCorrenteService {

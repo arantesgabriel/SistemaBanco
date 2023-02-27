@@ -22,9 +22,9 @@ public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLIENTE_SEQ")
-    @SequenceGenerator(sequenceName = "CODCLI_SEQ", allocationSize = 1, name = "CLIENTE_SEQ")
+	@SequenceGenerator(sequenceName = "CODCLI_SEQ", allocationSize = 1, name = "CLIENTE_SEQ")
 	@Column(name = "codcli")
-	private Integer codigoCliente;
+	private Long codigoCliente;
 	@Column(name = "nomcli")
 	private String nomeCliente;
 	@Column(name = "cpfcnp")
@@ -36,18 +36,18 @@ public class Cliente implements Serializable {
 		super();
 	}
 
-	public Cliente(Integer codigoCliente, String nomeCliente, String cpfCnp) {
+	public Cliente(Long codigoCliente, String nomeCliente, String cpfCnp) {
 		super();
 		this.codigoCliente = codigoCliente;
 		this.nomeCliente = nomeCliente;
 		this.cpfCnp = cpfCnp;
 	}
 
-	public Integer getCodigoCliente() {
+	public Long getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(Integer codigoCliente) {
+	public void setCodigoCliente(Long codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 

@@ -1,4 +1,4 @@
-package com.pxt.SistemaBanco.services;
+package com.pxt.SistemaBanco.services.impl;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,13 +10,15 @@ import org.springframework.stereotype.Service;
 
 import com.pxt.SistemaBanco.domain.Cliente;
 import com.pxt.SistemaBanco.repository.ClienteRepository;
+import com.pxt.SistemaBanco.services.ClienteService;
+import com.pxt.SistemaBanco.services.ContaCorrenteService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
-	
+
 	@Autowired
 	private ContaCorrenteService contaService;
 
@@ -39,12 +41,12 @@ public class ClienteServiceImpl implements ClienteService {
 			throw new RuntimeException("CPF já cadastrado.");
 		}
 	}
-	
+
 	@Override
 	public Cliente buscarPorNome(String nome) {
 		return clienteRepository.buscarClientePorNome(nome);
 	}
-	
+
 	@Override
 	public List<Cliente> buscar(String nome, String cpfCnpj) {
 		return clienteRepository.buscar(nome, cpfCnpj);

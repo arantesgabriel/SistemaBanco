@@ -1,13 +1,14 @@
 package com.pxt.SistemaBanco.domain;
 
-public enum TipoLancamento {
-
-	C ("CRÉDITO"),
-	D ("DÉBITO");
-
+public enum TipoOperacao {
+	
+	SQ ("SAQUE"),
+	DP ("DEPÓSITO"),
+	TF ("TRANSFERÊNCIA");
+	
 	String descricao;
 	
-	TipoLancamento(String descricao) {
+	TipoOperacao(String descricao) {
 		this.descricao = descricao;
 	}
 
@@ -18,5 +19,5 @@ public enum TipoLancamento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
 }

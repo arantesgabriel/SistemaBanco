@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.pxt.SistemaBanco.domain.Cliente;
 
-public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 	boolean existsBycpfCnp(String cpfCnp);
 	

@@ -24,7 +24,7 @@ public class Conta implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CONTA_SEQ")
-    @SequenceGenerator(sequenceName = "NUMCTA_SEQ", allocationSize = 1, name = "CONTA_SEQ")
+	@SequenceGenerator(sequenceName = "NUMCTA_SEQ", allocationSize = 1, name = "CONTA_SEQ")
 	@Column(name = "NUMCTA")
 	private Long numeroConta;
 	@Column(name = "NUMDIG")
@@ -100,7 +100,16 @@ public class Conta implements Serializable {
 			throw new RuntimeException(
 					"O valor desejado deixará seu saldo de Crédito Especial negativo, tente outro valor.");
 		}
-		getSaldoConta().add(valor);
+		
+		this.setSaldoConta(getSaldoConta().add(valor));
 	}
-
+	
+	public void subtrairSaldo (BigDecimal valor) {
+		if (getSaldoConta().subtract(valor).compareTo(getCreditoEspecial().multiply(BigDecimal.valueOf(-1)))< 0) {
+			throw new RuntimeException(
+					"O valor desejado deixará seu saldo de Crédito Especial negativo, tente outro valor.");
+		}
+		
+		this.setSaldoConta(getSaldoConta().subtract(valor));
+	}
 }
