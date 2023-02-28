@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.pxt.SistemaBanco.domain.Lancamento;
+import com.pxt.SistemaBanco.domain.dto.LancamentoDTO;
 import com.pxt.SistemaBanco.services.LancamentoService;
 
 @RestController
@@ -19,8 +19,8 @@ public class ControllerLancamento {
 	private LancamentoService lancamentoService;
 
 	@GetMapping
-	public List<Lancamento> gerarExtrato(@RequestParam("numcta") Long numcta) {
-		return lancamentoService.gerarExtrato(numcta);
+	public List<LancamentoDTO> gerarExtratoFinal(@RequestParam("numcta") Long numcta) {
+		return lancamentoService.gerarExtratoFinal(numcta);
 	}
 
 }

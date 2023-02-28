@@ -45,12 +45,12 @@ public class Lancamento implements Serializable {
 	@Column(name = "VLRLAN")
 	private BigDecimal valorLancamento;
 
-	public Long codigoLancamento() {
+	public Long getCodigoLancamento() {
 		return codigoLancamento;
 	}
 
-	public void codigoLancamento(Long iDLancamento) {
-		codigoLancamento = iDLancamento;
+	public void setCodigoLancamento(Long codigoLancamento) {
+		this.codigoLancamento = codigoLancamento;
 	}
 
 	public Operacao getOperacao() {
