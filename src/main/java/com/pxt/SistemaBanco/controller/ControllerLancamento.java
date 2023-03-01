@@ -31,8 +31,9 @@ public class ControllerLancamento {
 			dataFinal = dataFinal.plusDays(1);
 
 			return ResponseEntity.ok(lancamentoService.gerarExtratoFinal(numcta, dataInicio, dataFinal));
+			
 		} catch (Exception e) {
-			return ResponseEntity.badRequest().body("Erro ao gerar extrato " + e.getMessage());
+			return ResponseEntity.badRequest().body("Erro ao gerar extrato: " + e.getSuppressed());
 		}
 	}
 

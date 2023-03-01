@@ -1,6 +1,7 @@
 package com.pxt.SistemaBanco.services.impl;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import com.pxt.SistemaBanco.domain.Lancamento;
 import com.pxt.SistemaBanco.domain.Operacao;
 import com.pxt.SistemaBanco.domain.TipoLancamento;
 import com.pxt.SistemaBanco.domain.TipoOperacao;
+import com.pxt.SistemaBanco.domain.dto.BuscaOperacaoDTO;
 import com.pxt.SistemaBanco.domain.dto.OperacaoDTO;
 import com.pxt.SistemaBanco.repository.ContaCorrenteRepository;
 import com.pxt.SistemaBanco.repository.LancamentoRepository;
@@ -127,8 +129,24 @@ public class OperacaoServiceImpl implements OperacaoService {
 		return operacaoDTO;
 	}
 
-	public List<Operacao> buscar(Long codop) {
-		return operacaoRepository.buscar(codop);
+	public List<BuscaOperacaoDTO> buscar(Long codigoOperacao) {
+		
+		List <BuscaOperacaoDTO> buscaOperacaoDTO = new ArrayList<>();
+		List <Operacao> listaOperacoes = operacaoRepository.buscar(codigoOperacao);
+		
+		for (Operacao operacao : listaOperacoes) {
+			
+			Long codop = operacao.getCodop();
+			TipoOperacao tipop = operacao.getTipop();
+			Long contaOrigem = operacao.getContaOrigem().getNumeroConta();
+			Long contaDestino = operacao.getContaDestino().getNumeroConta();
+			
+			BuscaOperacaoDTO novaOperacao = new BuscaOperacaoDTO (codop, tipop, contaOrigem, contaDestino);
+			buscaOperacaoDTO.add(novaOperacao);
+			
+		}
+		
+		return buscaOperacaoDTO;
 
 	}
 
