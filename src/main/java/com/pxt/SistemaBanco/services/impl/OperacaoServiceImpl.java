@@ -117,6 +117,10 @@ public class OperacaoServiceImpl implements OperacaoService {
 			lancamentoTFCredito.setValorLancamento(operacaoDTO.getValor());
 			lancamentoTFCredito.setOperacao(operacaoTransferencia);
 			lancamentoRepository.save(lancamentoTFCredito);
+			
+			operacaoDTO.setCodop(operacaoTransferencia.getCodop());
+			operacaoDTO.setDatinc(LocalDateTime.now());
+			operacaoDTO.setTipop(operacaoTransferencia.getTipop());
 
 		}
 

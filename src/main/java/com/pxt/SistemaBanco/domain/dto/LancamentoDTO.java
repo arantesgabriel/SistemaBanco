@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-import com.pxt.SistemaBanco.domain.Conta;
 import com.pxt.SistemaBanco.domain.TipoLancamento;
 
 public class LancamentoDTO {

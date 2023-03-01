@@ -20,10 +20,10 @@ public class LancamentoServiceImpl implements LancamentoService {
 	@Autowired
 	LancamentoRepository lancamentoRepository;
 
-	public List<LancamentoDTO> gerarExtratoFinal(Long numcta) {
+	public List<LancamentoDTO> gerarExtratoFinal(Long numcta, LocalDateTime dataInicio, LocalDateTime dataFinal) {
 
 		List<LancamentoDTO> lancamentoDTO = new ArrayList<>();
-		List<Lancamento> listaLancamentos = lancamentoRepository.gerarExtrato(numcta);
+		List<Lancamento> listaLancamentos = lancamentoRepository.gerarExtrato(numcta, dataInicio, dataFinal);
 
 		for (Lancamento lancamento : listaLancamentos) {
 
@@ -53,4 +53,5 @@ public class LancamentoServiceImpl implements LancamentoService {
 		return lancamentoDTO;
 
 	}
+
 }
