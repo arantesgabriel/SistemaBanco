@@ -27,7 +27,7 @@ public class ControllerOperacao {
 		try {
 			return ResponseEntity.ok(operacaoService.efetuarOperacao(operacaoDTO));
 		} catch (Exception e) {
-			return ResponseEntity.badRequest().body("Erro ao efetuar Operação: " + e.getMessage());
+			return ResponseEntity.badRequest().body("Erro ao efetuar operação: " + e.getMessage());
 		}
 	}
 

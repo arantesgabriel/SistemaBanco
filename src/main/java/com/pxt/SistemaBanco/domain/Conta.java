@@ -35,11 +35,14 @@ public class Conta implements Serializable {
 	private BigDecimal saldoConta;
 	@Column(name = "VLRCREESP")
 	private BigDecimal creditoEspecial;
+	@Column(name = "INDATV")
+	private Boolean indicadorAtivo;
 
 //	Forma errada
 //	@Column(name = "CPFCNP")
 //	private Cliente cliente;
 
+	// Forma correta
 	@ManyToOne(targetEntity = Cliente.class)
 	@JoinColumn(name = "CODCLI", referencedColumnName = "CODCLI")
 	private Cliente cliente;
@@ -95,21 +98,29 @@ public class Conta implements Serializable {
 		this.creditoEspecial = creditoEspecial;
 	}
 
+	public Boolean getIndicadorAtivo() {
+		return indicadorAtivo;
+	}
+
+	public void setIndicadorAtivo(Boolean indicadorAtivo) {
+		this.indicadorAtivo = indicadorAtivo;
+	}
+
 	public void addSaldo(BigDecimal valor) {
 		if (getSaldoConta().add(valor).compareTo(getCreditoEspecial().multiply(BigDecimal.valueOf(-1))) < 0) {
 			throw new RuntimeException(
 					"O valor desejado deixará seu saldo de Crédito Especial negativo, tente outro valor.");
 		}
-		
+
 		this.setSaldoConta(getSaldoConta().add(valor));
 	}
-	
-	public void subtrairSaldo (BigDecimal valor) {
-		if (getSaldoConta().subtract(valor).compareTo(getCreditoEspecial().multiply(BigDecimal.valueOf(-1)))< 0) {
+
+	public void subtrairSaldo(BigDecimal valor) {
+		if (getSaldoConta().subtract(valor).compareTo(getCreditoEspecial().multiply(BigDecimal.valueOf(-1))) < 0) {
 			throw new RuntimeException(
 					"O valor desejado deixará seu saldo de Crédito Especial negativo, tente outro valor.");
 		}
-		
+
 		this.setSaldoConta(getSaldoConta().subtract(valor));
 	}
 }

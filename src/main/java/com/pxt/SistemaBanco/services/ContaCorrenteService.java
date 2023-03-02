@@ -7,4 +7,6 @@ public interface ContaCorrenteService {
 
 	Conta criarConta(Cliente cliente);
 
+	Conta inativarConta(Long numeroConta);
+
 }

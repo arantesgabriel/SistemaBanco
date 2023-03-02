@@ -13,7 +13,6 @@ public class BuscaOperacaoDTO {
 
 	public BuscaOperacaoDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public BuscaOperacaoDTO(Long codop, TipoOperacao tipop, Long contaOrigem, Long contaDestino) {

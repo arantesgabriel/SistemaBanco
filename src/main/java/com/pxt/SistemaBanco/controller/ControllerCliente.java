@@ -24,7 +24,7 @@ public class ControllerCliente {
 	@Autowired
 	private ClienteService clienteService;
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<?> salvar(@RequestBody Cliente cliente) {
 		try {
 			return ResponseEntity.ok(clienteService.cadastrarCliente(cliente));			
