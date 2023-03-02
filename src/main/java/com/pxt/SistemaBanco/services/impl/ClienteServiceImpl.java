@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.pxt.SistemaBanco.domain.Cliente;
 import com.pxt.SistemaBanco.repository.ClienteRepository;
 import com.pxt.SistemaBanco.services.ClienteService;
-import com.pxt.SistemaBanco.services.ContaCorrenteService;
+import com.pxt.SistemaBanco.services.ContaService;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -20,7 +20,7 @@ public class ClienteServiceImpl implements ClienteService {
 	private ClienteRepository clienteRepository;
 
 	@Autowired
-	private ContaCorrenteService contaService;
+	private ContaService contaService;
 
 	@Override
 	@Transactional

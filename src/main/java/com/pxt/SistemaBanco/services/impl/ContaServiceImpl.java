@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.pxt.SistemaBanco.domain.Cliente;
 import com.pxt.SistemaBanco.domain.Conta;
 import com.pxt.SistemaBanco.repository.ContaRepository;
-import com.pxt.SistemaBanco.services.ContaCorrenteService;
+import com.pxt.SistemaBanco.services.ContaService;
 
 @Service
-public class ContaServiceImpl implements ContaCorrenteService {
+public class ContaServiceImpl implements ContaService {
 
 	@Autowired
 	private ContaRepository contaCorrenteRepository;
